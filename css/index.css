@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap");
+
+* {
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+
+#wrapper {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+.bg-dark {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+.jumbotron {
+  color: white !important;
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  border-radius: 20px !important;
+}
+
+@media (min-width: 576px) {
+  .jumbotron {
+    padding: 2rem 1rem;
+  }
+}
+
+.nav-brand {
+  margin-left: 10px;
+}
+
+body {
+  background-color: #5c5c5c !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+.list-group-item {
+  font-family: "Raleway", sans-serif;
+}
+
+.list-group-item:hover {
+  background-color: #414141 !important;
+}
+
+.topic {
+  padding-left: 40px;
+}
+#diagram {
+  height: 300px;
+  width: 425px;
+}
+.custom-select > option {
+  color: black !important;
+}
