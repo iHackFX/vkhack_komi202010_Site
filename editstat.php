@@ -3,6 +3,9 @@ require_once($_SERVER["DOCUMENT_ROOT"] . '/engine.php');
 if (!isset(engine::getUserType()[0]) || engine::getUserType()[1] != 1) {
   engine::Redirect();
 }
+if (isset($_GET['cancel'])){
+  engine::nextStage($_GET['nextId'], "cancel");
+}
 if (isset($_GET['nextId']) && isset($_GET['stage'])){
   engine::nextStage($_GET['nextId'], $_GET['stage']);
 
@@ -11,6 +14,7 @@ $row = engine::getOrders(["priority" => $_GET["priority"], "id" => $_GET["id"], 
 if(!isset($row[0])){
   $row = engine::getOrders();
 }
+
 engine::get_Header("Список заявок");
 ?>
 <br>
@@ -48,7 +52,7 @@ engine::get_Header("Список заявок");
               <option value="P-3">P-3</option>
             </select>
           </div> 
-          
+
           <button type="submit" class="btn btn-primary mb-2"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
       </div>
@@ -95,7 +99,6 @@ engine::get_Header("Список заявок");
             $num = 8;
             break;
         }
-        print_r($json[$num][$mas[$num]]);
       ?>
         <div class="jumbotron">
           <form class="form-inline" action="">
@@ -104,7 +107,10 @@ engine::get_Header("Список заявок");
               <input type="text" name="stage" value="<?= $row[$i][2] ?>" style="display: none;">
               <input type="text" name="nextId" value="<?= $row[$i][1] ?>" style="display: none;">
 
-            <button type="submit" class="btn btn-primary ml-auto">Следующий этап</button>
+              <div class="ml-auto">
+                <button type="submit" class="btn btn-primary">Следующий этап</button>
+                <button type="submit" name="cancel" class="btn btn-danger">Брак</button>
+              </div>
           </form>
         </div>
       <?php } ?>

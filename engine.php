@@ -283,11 +283,16 @@ class engine
           ];
           date_default_timezone_set("Europe/Moscow");
           $now = date('Y-m-d H:i:s');
+          if($stage == "cancel"){
+            $num = 8;
+            print_r("hello");
+          }else{
+            
+          }
           $row[$num][$mas[$num]]["date_start"] = $now;
           $row[$num - 1][$mas[$num - 1]]["date_end"] = $now;
           $row[$num - 1][$mas[$num - 1]] = array_merge($row[$num - 1][$mas[$num - 1]], $obj);
           $sql = "UPDATE orders SET status_dates = " . "'" . self::sanitize(json_encode($row), "sql") . "'" . ", status = " . "'" . $mas[$num] . "'" . " WHERE serial =" . $id;
-          print_r($sql);
           $result = mysqli_query(self::get_Connection(), $sql);
         }
       }
