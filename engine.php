@@ -128,7 +128,7 @@ class engine
           <div class="list-group list-group-flush">
             <a href="/" class="list-group-item list-group-item-action bg-dark"><i class="fas fa-indent"></i> Главная</a>
             <a href="/check.php" class="list-group-item list-group-item-action bg-dark"><i class="fas fa-circle-notch"></i> Статус заявки</a>
-            <?= isset(self::getUserType()[0]) || engine::getUserType()[1] != 1 ? '<a href=/editstat.php class="list-group-item list-group-item-action bg-dark"><i class="fas fa-users-cog"></i> Список заявок(editor)</a>' : null ?>
+            <?= isset(self::getUserType()[0]) ? '<a href=/editstat.php class="list-group-item list-group-item-action bg-dark"><i class="fas fa-users-cog"></i> Список заявок(editor)</a>' : null ?>
             <?= self::getUserType()[1] == 1 ? '<a href="/admin.php" class="list-group-item list-group-item-action bg-dark"><i class="fas fa-user-cog"></i> Admin</a>' : null ?>
           </div>
         </div>
