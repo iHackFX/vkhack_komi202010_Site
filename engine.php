@@ -285,7 +285,6 @@ class engine
           $now = date('Y-m-d H:i:s');
           if($stage == "cancel"){
             $num = 8;
-            print_r("hello");
           }else{
             
           }
